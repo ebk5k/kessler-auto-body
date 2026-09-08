@@ -257,7 +257,7 @@ body::after {
 .explore.dragging { cursor: grabbing; }
 .explore__canvas { position: absolute; left: 0; top: 0; display: grid; gap: 8px; will-change: transform; }
 .explore__col { display: grid; gap: 8px; align-content: start; }
-.explore__col:nth-child(even) { padding-top: 132px; }
+.explore__col--lift { padding-top: 132px; }
 .tile { width: var(--tile-w, 340px); aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink-3); }
 .tile img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.92); transition: filter 0.6s, transform 0.9s var(--ease); pointer-events: none; }
 .tile:hover img { filter: saturate(1); transform: scale(1.04); }
@@ -555,7 +555,7 @@ body::after {
   .reel__meta { max-width: none; margin-bottom: 40px; }
 
   .explore { min-height: 520px; height: 78vh; }
-  .explore__col:nth-child(even) { padding-top: 70px; }
+  .explore__col--lift { padding-top: 70px; }
 
   .sh { padding-top: 72px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 20px; }
   .h-display br, .stats__head h2 br, .standard__in h2 br { display: none; }

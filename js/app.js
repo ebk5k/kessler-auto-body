@@ -86,59 +86,78 @@
   addEventListener('resize', onScroll);
   quoteScroll(); tlScroll();
 
-  /* ---------- drag-to-explore grid ---------- */
+  /* ---------- drag-to-explore grid: infinite horizontal rotation ---------- */
   const explore = $('#explore'), canvas = $('#canvas');
   if (explore && canvas) {
     const IMGS = ['hero', 'work-bmw', 'svc-paint', 'work-macan', 'story', 'svc-collision', 'paint-mixing', 'svc-frame', 'shop-wide', 'svc-dent'];
-    const COLS = 7, ROWS = 4;
-    let html = '';
-    for (let c = 0; c < COLS; c++) {
-      html += '<div class="explore__col">';
-      for (let r = 0; r < ROWS; r++) {
-        const n = IMGS[(c * 3 + r * 4 + (c % 2)) % IMGS.length];
-        html += `<div class="tile"><img src="assets/${n}-sm.jpg" alt="" loading="lazy" decoding="async" draggable="false"></div>`;
-      }
-      html += '</div>';
-    }
-    canvas.innerHTML = html;
-    canvas.style.gridTemplateColumns = `repeat(${COLS}, max-content)`;
+    const COLS = 8, ROWS = 4;          // even column count so the lifted-column stagger repeats seamlessly
+    const BASE = 34;                   // idle rotation speed, px per second
+    let copies = 2, W = 0, o = 0, y = 0, vx = 0, vy = 0, dir = 1; // vx/vy in px per 60fps-frame
+    let dragging = false, lx = 0, ly = 0, lt = 0, touched = false, inView = false;
 
-    let x = 0, y = 0, vx = 0, vy = 0, dragging = false, lx = 0, ly = 0, touched = false, inView = false, dir = 1;
-    const bounds = () => ({ minX: Math.min(0, explore.clientWidth - canvas.offsetWidth), minY: Math.min(0, explore.clientHeight - canvas.offsetHeight) });
-    const clamp = () => { const b = bounds(); x = Math.max(b.minX, Math.min(0, x)); y = Math.max(b.minY, Math.min(0, y)); };
-    const apply = () => { canvas.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0)`; };
-    const center = () => { const b = bounds(); x = b.minX / 2; y = b.minY / 2; apply(); };
-    center();
-    addEventListener('resize', center);
+    const setHTML = (() => {
+      let h = '';
+      for (let c = 0; c < COLS; c++) {
+        h += `<div class="explore__col${c % 2 ? ' explore__col--lift' : ''}">`;
+        for (let r = 0; r < ROWS; r++) {
+          const n = IMGS[(c * ROWS + r) % IMGS.length]; // even spread, no adjacent repeats, seamless across the copy boundary
+          h += `<div class="tile"><img src="assets/${n}-sm.jpg" alt="" loading="lazy" decoding="async" draggable="false"></div>`;
+        }
+        h += '</div>';
+      }
+      return h;
+    })();
+
+    const render = (n) => {
+      copies = n;
+      canvas.innerHTML = setHTML.repeat(n);
+      canvas.style.gridTemplateColumns = `repeat(${COLS * n}, max-content)`;
+      W = (canvas.offsetWidth + 8) / n; // width of one set, trailing gap included
+    };
+    const minY = () => Math.min(0, explore.clientHeight - canvas.offsetHeight);
+    const clampY = () => { y = Math.max(minY(), Math.min(0, y)); };
+    const wrap = () => { o = ((o % W) + W) % W; };
+    const apply = () => { canvas.style.transform = `translate3d(${(-o).toFixed(2)}px, ${y.toFixed(2)}px, 0)`; };
+    const build = () => {
+      render(1);
+      render(Math.max(2, Math.ceil(explore.clientWidth / W) + 1));
+      y = minY() / 2; wrap(); apply();
+    };
+    build();
+    let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(build, 150); });
 
     explore.addEventListener('pointerdown', e => {
       if (e.button !== 0) return;
       dragging = true; touched = true;
       explore.classList.add('dragging', 'touched');
-      lx = e.clientX; ly = e.clientY; vx = vy = 0;
+      lx = e.clientX; ly = e.clientY; lt = e.timeStamp; vx = vy = 0;
       try { explore.setPointerCapture(e.pointerId); } catch (_) {}
     });
     explore.addEventListener('pointermove', e => {
       if (!dragging) return;
-      const dx = e.clientX - lx, dy = e.clientY - ly;
-      lx = e.clientX; ly = e.clientY;
-      x += dx; y += dy; vx = dx; vy = dy;
-      clamp(); apply();
+      const dx = e.clientX - lx, dy = e.pointerType === 'touch' ? 0 : e.clientY - ly;
+      const k = (1000 / 60) / Math.max(4, e.timeStamp - lt); // normalise to px per 60fps frame whatever the event rate
+      lx = e.clientX; ly = e.clientY; lt = e.timeStamp;
+      o -= dx; y += dy; vx = dx * k; vy = dy * k;
+      clampY(); wrap(); apply();
     });
-    const end = () => { if (!dragging) return; dragging = false; explore.classList.remove('dragging'); };
+    const end = () => {
+      if (!dragging) return;
+      dragging = false; explore.classList.remove('dragging');
+      if (Math.abs(vx) > 1) dir = vx > 0 ? -1 : 1; // keep rotating the way it was flung
+    };
     ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev => explore.addEventListener(ev, end));
 
     new IntersectionObserver(en => { inView = en[0].isIntersecting; }, { threshold: 0.05 }).observe(explore);
 
-    const loop = () => {
-      if (!dragging && inView) {
-        if (Math.abs(vx) > 0.15 || Math.abs(vy) > 0.15) { x += vx; y += vy; vx *= 0.93; vy *= 0.93; clamp(); apply(); }
-        else if (!touched && !reduce) {
-          x -= 0.3 * dir;
-          const b = bounds();
-          if (x <= b.minX + 1 || x >= -1) dir *= -1;
-          clamp(); apply();
-        }
+    let last = performance.now();
+    const loop = (now) => {
+      const dt = Math.min(0.2, Math.max(0, (now - last) / 1000)); last = now; // seconds; capped so a background tab never jumps
+      if (!dragging && inView && W > 0) {
+        const f = dt * 60;
+        if (Math.abs(vx) > 0.6) { o -= vx * f; vx *= Math.pow(0.94, f); } else if (!reduce) { o += BASE * dir * dt; }
+        if (Math.abs(vy) > 0.2) { y += vy * f; vy *= Math.pow(0.92, f); clampY(); }
+        wrap(); apply();
       }
       requestAnimationFrame(loop);
     };
