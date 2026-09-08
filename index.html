@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kessler Auto Body — Collision Repair &amp; Paint in Burbank, CA</title>
+  <meta name="description" content="Kessler Auto Body is a Burbank collision repair and refinish shop: factory-matched paint, laser-measured structural repair, OEM parts, and a lifetime warranty. Free estimates, all insurers handled.">
+  <meta name="theme-color" content="#e8e0d6">
+  <link rel="canonical" href="https://kessler-auto-body.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kessler Auto Body — Like It Never Happened">
+  <meta property="og:description" content="Collision repair, paint and structural work in Burbank, CA. Factory color match, OEM parts, lifetime warranty.">
+  <meta property="og:image" content="https://kessler-auto-body.vercel.app/assets/hero-lg.jpg">
+  <meta property="og:url" content="https://kessler-auto-body.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoBodyShop",
+    "name": "Kessler Auto Body",
+    "description": "Collision repair, paint and refinish, frame and structural repair in Burbank, CA.",
+    "url": "https://kessler-auto-body.vercel.app/",
+    "telephone": "+1-818-555-0142",
+    "email": "hello@kesslerautobody.com",
+    "foundingDate": "2009",
+    "address": { "@type": "PostalAddress", "streetAddress": "2140 N Hollywood Way", "addressLocality": "Burbank", "addressRegion": "CA", "postalCode": "91505", "addressCountry": "US" },
+    "openingHours": ["Mo-Fr 07:30-18:00", "Sa 08:00-14:00"],
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+<body>
+
+<!-- svg sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="cu" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d0a27a"/><stop offset="1" stop-color="#a86d3e"/>
+    </linearGradient>
+  </defs>
+  <symbol id="mark" viewBox="0 0 40 24">
+    <path d="M10 0h8L10 24H2z" fill="url(#cu)" opacity=".55"/>
+    <path d="M22 0h8l-8 24h-8z" fill="url(#cu)" opacity=".8"/>
+    <path d="M34 0h6v24h-8z" fill="url(#cu)"/>
+  </symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="star" viewBox="0 0 16 16"><path d="M8 1.2l2.1 4.5 4.9.6-3.6 3.4.9 4.9L8 12.2l-4.3 2.4.9-4.9L1 6.3l4.9-.6z" fill="currentColor"/></symbol>
+  <symbol id="drag" viewBox="0 0 24 24"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="g1" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" fill="currentColor"/></symbol>
+  <symbol id="g2" viewBox="0 0 20 20"><path d="M10 2l7 4v8l-7 4-7-4V6z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="g3" viewBox="0 0 20 20"><path d="M10 2l8 8-8 8-8-8z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 10h8" stroke="currentColor" stroke-width="1.5"/></symbol>
+</svg>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="nav__in grid4 wrap">
+    <div class="nav__left">
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+      <a class="nav__logo" href="#top" aria-label="Kessler Auto Body home"><svg class="mark"><use href="#mark"/></svg></a>
+    </div>
+    <div class="nav__meta nav__loc">Burbank - California</div>
+    <div class="nav__meta nav__date" id="navDate">&nbsp;</div>
+    <div class="nav__meta nav__time" id="navTime">&nbsp;</div>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-hidden="true">
+  <div class="menu__links">
+    <a href="#services" style="--i:0">Services <small>01</small></a>
+    <a href="#work" style="--i:1">Recent Work <small>02</small></a>
+    <a href="#process" style="--i:2">How We Work <small>03</small></a>
+    <a href="#faq" style="--i:3">Questions <small>04</small></a>
+    <a href="#journal" style="--i:4">Journal <small>05</small></a>
+    <a href="#contact" style="--i:5">Free Estimate <small>06</small></a>
+  </div>
+  <div class="menu__foot">
+    <div><strong>Shop</strong>2140 N Hollywood Way <br>Burbank, CA 91505</div>
+    <div><strong>Hours</strong>Mon–Fri 7:30am–6pm <br>Sat 8am–2pm</div>
+    <div><strong>Call or text</strong><a href="tel:+18185550142">(818) 555-0142</a></div>
+    <div><strong>Email</strong><a href="mailto:hello@kesslerautobody.com">hello@kesslerautobody.com</a></div>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero wrap">
+  <div class="hero__top grid4">
+    <div class="hero__reel rv" style="--d:.1s">
+      <div class="reel">
+        <video id="reel" muted autoplay loop playsinline preload="metadata" poster="assets/hero-lg.jpg" aria-label="Shop reel: a freshly refinished sedan in the paint booth">
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+        <div class="reel__badge"><i></i>Shop reel</div>
+      </div>
+      <div class="reel__meta"><span>BURBANK, CA</span><span class="dot">Collision &amp; Paint</span></div>
+    </div>
+
+    <div class="hero__copy">
+      <div class="trust rv" style="--d:.25s">
+        <div class="avatars" aria-hidden="true"><span>PN</span><span>DR</span><span>EM</span><span>JK</span></div>
+        <div class="stars">
+          <svg aria-hidden="true"><use href="#star" width="14" height="14" x="0"/><use href="#star" width="14" height="14" x="19"/><use href="#star" width="14" height="14" x="38"/><use href="#star" width="14" height="14" x="57"/><use href="#star" width="14" height="14" x="76"/></svg>
+          <small>Trusted by 4,000+ drivers</small>
+        </div>
+      </div>
+      <p class="p-lead rv" style="--d:.35s">Bring your car back to the day it left the factory — color-matched paint, frame-true structure, and a repair warranty for as long as you own it.</p>
+      <a class="lk rv" style="--d:.45s" href="#contact">Get a free estimate <svg><use href="#arrow"/></svg></a>
+    </div>
+
+    <div class="hero__stamp rv rv--fade" style="--d:.5s" aria-hidden="true">
+      <svg class="stamp" viewBox="0 0 100 100">
+        <defs><path id="ring" d="M50 50 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0"/></defs>
+        <text><textPath href="#ring">Lifetime warranty · Factory match · </textPath></text>
+      </svg>
+      <svg class="mark"><use href="#mark"/></svg>
+    </div>
+
+    <ul class="hero__services rv" style="--d:.55s">
+      <li><a href="#services">Collision Repair</a></li>
+      <li><a href="#services">Paint &amp; Refinish</a></li>
+      <li><a href="#services">Frame &amp; Structural</a></li>
+      <li><a href="#services">Dents, Scratches &amp; Bumpers</a></li>
+    </ul>
+  </div>
+
+  <div class="hero__title">
+    <span class="lb rv" style="--d:.2s">Welcome to Kessler</span>
+    <h1 class="h1 split" id="h1">
+      <span class="w"><i style="--i:0">Like</i></span> <span class="w"><i style="--i:1">it</i></span> <span class="w"><i style="--i:2">never</i></span> <br>
+      <span class="w"><i style="--i:3">happened</i></span>
+    </h1>
+    <span class="lb hero__more rv" style="--d:.6s">Recent repairs</span>
+  </div>
+</section>
+
+<!-- ================= DRAG TO EXPLORE ================= -->
+<section class="explore dark" id="explore" aria-label="Drag to explore recent repairs">
+  <div class="explore__canvas" id="canvas"></div>
+  <div class="explore__fade"></div>
+  <div class="explore__hint"><svg><use href="#drag"/></svg>Drag to explore recent repairs</div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services dark" id="services">
+  <div class="sh grid4 wrap">
+    <span class="lb sh__label rv">What we do</span>
+    <div class="sh__title">
+      <h2 class="h-display rv">Complete Collision Repair, <br>Done to Factory Standard</h2>
+      <p class="p-lead rv" style="--d:.1s">From the first photo estimate to the final polish, every repair is handled in-house by certified technicians — so the car you get back is the car you had.</p>
+      <a class="lk rv" style="--d:.2s" href="#contact">View all services <svg><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+  <div class="hair"></div>
+
+  <div class="wrap">
+    <article class="svc grid4">
+      <div class="svc__scope">
+        <span class="lb rv">Scope</span>
+        <ul class="rv" style="--d:.15s"><li>[Insurance Claims]</li><li>[OEM Parts]</li><li>[ADAS Recalibration]</li></ul>
+      </div>
+      <div class="svc__img rv"><img src="assets/svc-collision-lg.jpg" srcset="assets/svc-collision-sm.jpg 640w, assets/svc-collision-lg.jpg 1024w" sizes="(max-width: 860px) 100vw, 25vw" alt="Technician aligning a new fender on a warm-silver sedan" loading="lazy" decoding="async"></div>
+      <div class="svc__body">
+        <span class="lb rv">01 / Service</span>
+        <h3 class="h-sub rv" style="--d:.08s">Collision Repair</h3>
+        <p class="p-body rv" style="--d:.16s">Structural and cosmetic collision repair on every make — unibody and full frame, aluminum and steel — measured to factory specification before a single panel is painted.</p>
+        <a class="lk rv" style="--d:.24s" href="#contact">Learn more <svg><use href="#arrow"/></svg></a>
+      </div>
+    </article>
+
+    <article class="svc grid4">
+      <div class="svc__scope">
+        <span class="lb rv">Scope</span>
+        <ul class="rv" style="--d:.15s"><li>[Color Matching]</li><li>[Blend &amp; Clear]</li><li>[Full Repaints]</li></ul>
+      </div>
+      <div class="svc__img rv"><img src="assets/svc-paint-lg.jpg" srcset="assets/svc-paint-sm.jpg 640w, assets/svc-paint-lg.jpg 1024w" sizes="(max-width: 860px) 100vw, 25vw" alt="Painter spraying a door panel in the downdraft booth" loading="lazy" decoding="async"></div>
+      <div class="svc__body">
+        <span class="lb rv">02 / Service</span>
+        <h3 class="h-sub rv" style="--d:.08s">Paint &amp; Refinish</h3>
+        <p class="p-body rv" style="--d:.16s">Computer-matched, blended, and baked in a downdraft booth. We read your car's actual color, not just the code, then blend into adjacent panels so the repair disappears in any light.</p>
+        <a class="lk rv" style="--d:.24s" href="#contact">Learn more <svg><use href="#arrow"/></svg></a>
+      </div>
+    </article>
+
+    <article class="svc grid4">
+      <div class="svc__scope">
+        <span class="lb rv">Scope</span>
+        <ul class="rv" style="--d:.15s"><li>[Laser Measuring]</li><li>[Unibody Repair]</li><li>[Suspension Alignment]</li></ul>
+      </div>
+      <div class="svc__img rv"><img src="assets/svc-frame-lg.jpg" srcset="assets/svc-frame-sm.jpg 640w, assets/svc-frame-lg.jpg 1024w" sizes="(max-width: 860px) 100vw, 25vw" alt="Sedan on the frame rack with laser measuring targets" loading="lazy" decoding="async"></div>
+      <div class="svc__body">
+        <span class="lb rv">03 / Service</span>
+        <h3 class="h-sub rv" style="--d:.08s">Frame &amp; Structural</h3>
+        <p class="p-body rv" style="--d:.16s">Laser-measured frame straightening on a computerized rack, with printed before-and-after reports so you can see the car is true to the millimeter — not just to the eye.</p>
+        <a class="lk rv" style="--d:.24s" href="#contact">Learn more <svg><use href="#arrow"/></svg></a>
+      </div>
+    </article>
+
+    <article class="svc grid4">
+      <div class="svc__scope">
+        <span class="lb rv">Scope</span>
+        <ul class="rv" style="--d:.15s"><li>[Paintless Dent Repair]</li><li>[Bumper Repair]</li><li>[Wheel Refinishing]</li></ul>
+      </div>
+      <div class="svc__img rv"><img src="assets/svc-dent-lg.jpg" srcset="assets/svc-dent-sm.jpg 640w, assets/svc-dent-lg.jpg 1024w" sizes="(max-width: 860px) 100vw, 25vw" alt="Paintless dent repair on an espresso-brown fender" loading="lazy" decoding="async"></div>
+      <div class="svc__body">
+        <span class="lb rv">04 / Service</span>
+        <h3 class="h-sub rv" style="--d:.08s">Dents, Scratches &amp; Bumpers</h3>
+        <p class="p-body rv" style="--d:.16s">Paintless dent removal, scratch and scuff repair, bumper reshaping, and wheel refinishing — the small jobs that keep a good car looking new, usually done in a day.</p>
+        <a class="lk rv" style="--d:.24s" href="#contact">Learn more <svg><use href="#arrow"/></svg></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= THE STANDARD ================= -->
+<section class="standard copper">
+  <span class="plus" style="left:16px;top:24px"></span><span class="plus" style="left:50%;top:24px;margin-left:-10px"></span><span class="plus" style="right:16px;top:24px"></span>
+  <span class="plus" style="left:16px;top:50%;margin-top:-10px"></span><span class="plus" style="right:16px;top:50%;margin-top:-10px"></span>
+  <span class="plus" style="left:16px;bottom:24px"></span><span class="plus" style="left:50%;bottom:24px;margin-left:-10px"></span><span class="plus" style="right:16px;bottom:24px"></span>
+  <div class="standard__in">
+    <span class="lb rv">Our standard</span>
+    <h2 class="rv" style="--d:.1s">Where Every Panel Lines Up &amp; <br>Every Color Matches.</h2>
+  </div>
+</section>
+
+<!-- ================= FROM THE OWNER ================= -->
+<section class="founder light" id="story">
+  <div class="quote">
+    <span class="lb">From the owner</span>
+    <p class="quote__text" id="quote">"Our job is to make the accident disappear — not just from the car, but from your week. If you can find the repair, we haven't finished."</p>
+  </div>
+  <div class="founder__by">
+    <div class="by rv">
+      <div class="by__avatar"><img src="assets/story-sm.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div><strong>Marcus Kessler</strong><small>Owner &amp; Master Refinisher</small></div>
+    </div>
+  </div>
+  <div class="hair"></div>
+  <div class="story grid4">
+    <div class="story__mark rv"><svg class="mark"><use href="#mark"/></svg></div>
+    <div class="story__body">
+      <h3 class="h-sub rv">Our Story</h3>
+      <p class="rv" style="--d:.08s">Kessler opened in 2009 with two bays, one booth, and a simple belief: a repair should be invisible. We spend time understanding what happened to the car before we touch a single panel.</p>
+      <p class="rv" style="--d:.16s">Every repair is personal — rooted in honest estimates, OEM parts, and a warranty that lasts as long as you own the car.</p>
+      <a class="lk rv" style="--d:.24s" href="#process">Learn more <svg><use href="#arrow"/></svg></a>
+    </div>
+    <div class="story__img rv" style="--d:.1s"><img src="assets/story-lg.jpg" srcset="assets/story-sm.jpg 768w, assets/story-lg.jpg 1536w" sizes="(max-width: 860px) 100vw, 25vw" alt="Two technicians reviewing an estimate beside a cream sedan" loading="lazy" decoding="async"></div>
+  </div>
+</section>
+
+<!-- ================= RECENT WORK ================= -->
+<section class="work dark" id="work">
+  <div class="sh grid4 wrap">
+    <span class="lb sh__label rv">Recent work</span>
+    <div class="sh__title"><h2 class="h-display rv">Repairs That Speak <br>for Themselves</h2></div>
+    <div class="sh__aside rv" style="--d:.1s"><a class="lk lk--full" href="#contact">View all work <svg><use href="#arrow"/></svg></a></div>
+  </div>
+  <div class="hair"></div>
+
+  <div class="cards">
+    <a class="card rv" href="#contact">
+      <div class="card__dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="card__meta"><span>2022 BMW M340i</span><i>/</i><span>Rear-quarter collision</span><i>/</i><span>9 days</span></div>
+      <div class="card__img"><img src="assets/work-bmw-lg.jpg" srcset="assets/work-bmw-sm.jpg 768w, assets/work-bmw-lg.jpg 1536w" sizes="(max-width: 860px) 100vw, 33vw" alt="Espresso-brown BMW sedan, rear three-quarter, freshly refinished" loading="lazy" decoding="async"></div>
+      <h4 class="card__title">Quarter Panel, Blended Into Both Doors</h4>
+    </a>
+    <a class="card card--short rv" style="--d:.1s" href="#contact">
+      <div class="card__dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="card__meta"><span>2019 Porsche Macan</span><i>/</i><span>Front-end collision</span><i>/</i><span>14 days</span></div>
+      <div class="card__img"><img src="assets/work-macan-lg.jpg" srcset="assets/work-macan-sm.jpg 768w, assets/work-macan-lg.jpg 1536w" sizes="(max-width: 860px) 100vw, 33vw" alt="Chalk-white Porsche Macan in the delivery bay" loading="lazy" decoding="async"></div>
+      <h4 class="card__title">New Front Structure, Cameras Recalibrated</h4>
+    </a>
+    <a class="card rv" style="--d:.2s" href="#contact">
+      <div class="card__dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="card__meta"><span>2023 Lexus ES</span><i>/</i><span>Full refinish</span><i>/</i><span>10 days</span></div>
+      <div class="card__img"><img src="assets/hero-lg.jpg" srcset="assets/hero-sm.jpg 768w, assets/hero-lg.jpg 1536w" sizes="(max-width: 860px) 100vw, 33vw" alt="Champagne sedan under the booth lights after a full refinish" loading="lazy" decoding="async"></div>
+      <h4 class="card__title">Sun-Faded Champagne, Back to Factory Depth</h4>
+    </a>
+  </div>
+  <div class="hair"></div>
+
+  <div class="testi grid4">
+    <div class="testi__left">
+      <div class="wordmark rv"><svg class="mark"><use href="#mark"/></svg>Northside Fleet</div>
+      <div class="by rv" style="--d:.1s">
+        <div class="by__avatar" aria-hidden="true">DR</div>
+        <div><strong>Daniel Reyes</strong><small>2022 BMW M340i</small></div>
+      </div>
+    </div>
+    <div class="testi__right">
+      <h2 class="h-display rv">"They gave us back a car we couldn't tell apart from new."</h2>
+      <p class="p-lead rv" style="--d:.1s">Two doors and a quarter panel, blended so well the dealer's own shop couldn't find the repair at trade-in. Photo updates every other day — and it was done a day early.</p>
+      <a class="lk rv" style="--d:.2s" href="#contact">View all work <svg><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats">
+  <div class="stats__bg"><img src="assets/shop-wide-lg.jpg" srcset="assets/shop-wide-sm.jpg 768w, assets/shop-wide-lg.jpg 1536w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>
+  <div class="stats__head">
+    <span class="lb rv">2009-2026</span>
+    <h2 class="rv" style="--d:.1s">Seventeen years of putting cars <br>back the way they came.</h2>
+  </div>
+  <div class="stats__grid">
+    <div class="stat rv"><span class="stat__num" data-count="12400" data-suffix="+">0+</span><span class="lb">01</span><p>Repairs completed and returned with a lifetime warranty</p></div>
+    <div class="stat rv" style="--d:.1s"><span class="stat__num" data-count="98" data-suffix="%">0%</span><span class="lb">02</span><p>Color matches approved on the first spray-out card</p></div>
+    <div class="stat rv" style="--d:.2s"><span class="stat__num" data-count="4.9" data-decimals="1" data-suffix="★">0★</span><span class="lb">03</span><p>Average rating across 1,100+ verified reviews</p></div>
+    <div class="stat rv" style="--d:.3s"><span class="stat__num" data-count="17" data-suffix="yrs">0yrs</span><span class="lb">04</span><p>Same owner, same standard, same address in Burbank</p></div>
+  </div>
+  <div class="stats__cta rv"><a class="lk" href="#contact">Get a free estimate <svg><use href="#arrow"/></svg></a></div>
+</section>
+
+<!-- ================= CLIENT STORIES ================= -->
+<section class="stories dark" id="stories">
+  <div class="sh grid4 wrap">
+    <span class="lb sh__label rv">Client stories</span>
+    <div class="sh__title">
+      <h2 class="h-display rv">Repairs That Earn <br>Referrals</h2>
+      <p class="p-lead rv" style="--d:.1s">Our work speaks through the drivers we've helped — from parking-lot fender benders to full structural rebuilds after the tow truck.</p>
+      <a class="lk rv" style="--d:.2s" href="#contact">View all reviews <svg><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+  <div class="hair"></div>
+
+  <div class="strip" id="strip">
+    <button class="strip__side rv" data-t="1" aria-label="Read Daniel Reyes's story"><img src="assets/work-bmw-sm.jpg" alt="" loading="lazy" decoding="async"><span>Daniel R.</span></button>
+    <button class="strip__side rv" style="--d:.05s" data-t="2" aria-label="Read Elena Marsh's story"><img src="assets/hero-sm.jpg" alt="" loading="lazy" decoding="async"><span>Elena M.</span></button>
+    <div class="strip__main rv" style="--d:.1s" id="stripMain">
+      <img id="stripImg" src="assets/work-macan-lg.jpg" alt="" loading="lazy" decoding="async">
+      <div class="strip__top">
+        <div><strong id="stripName">Priya Natarajan</strong><small id="stripRole">Insurance claim</small></div>
+        <div class="wordmark" style="font-size:16px"><svg class="mark"><use href="#mark"/></svg>Verified</div>
+      </div>
+      <div class="strip__bottom">
+        <span class="lb" id="stripCar">2019 Porsche Macan</span>
+        <p id="stripQuote">"The front end was a mess and the insurer pushed for aftermarket parts. Kessler held out for OEM, recalibrated every camera, and had it back in twelve days. It drives like nothing happened."</p>
+      </div>
+    </div>
+    <button class="strip__side rv" style="--d:.15s" data-t="3" aria-label="Read Marcus Tran's story"><img src="assets/svc-collision-sm.jpg" alt="" loading="lazy" decoding="async"><span>Marcus T.</span></button>
+    <button class="strip__side rv" style="--d:.2s" data-t="4" aria-label="Read Jordan Kim's story"><img src="assets/svc-dent-sm.jpg" alt="" loading="lazy" decoding="async"><span>Jordan K.</span></button>
+  </div>
+
+  <div class="trusted">
+    <h5 class="rv">Trusted by Drivers, Dealers &amp; Fleets Across the Valley</h5>
+    <ul class="marks rv" style="--d:.1s">
+      <li><svg><use href="#g1"/></svg>OEM parts</li>
+      <li><svg><use href="#g2"/></svg>Lifetime warranty</li>
+      <li><svg><use href="#g3"/></svg>All insurers</li>
+      <li><svg><use href="#g1"/></svg>Rental assist</li>
+      <li><svg><use href="#g2"/></svg>24/7 towing</li>
+      <li><svg><use href="#g3"/></svg>ADAS calibration</li>
+      <li><svg><use href="#g1"/></svg>Laser frame rack</li>
+      <li><svg><use href="#g2"/></svg>Downdraft booth</li>
+      <li><svg><use href="#g3"/></svg>Paintless dent</li>
+      <li><svg><use href="#g1"/></svg>Free estimates</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process dark" id="process">
+  <div class="sh sh--wide grid4 wrap">
+    <span class="lb sh__label rv">How we work</span>
+    <div class="sh__title"><h2 class="h-display rv">A Clear Path From <br>Estimate to Keys</h2></div>
+    <div class="sh__aside sh__aside--mid rv" style="--d:.1s"><p class="p-lead">Every repair follows the same three-phase process — so you always know where your car is and what happens next.</p></div>
+  </div>
+
+  <div class="timeline" id="timeline">
+    <div class="timeline__line"></div>
+
+    <article class="step">
+      <span class="step__when rv">[ Day 1 ]</span>
+      <span class="step__num rv" style="--d:.05s">/01</span>
+      <div class="step__body">
+        <h3 class="h-sub rv">Estimate &amp; Teardown</h3>
+        <p class="p-body rv" style="--d:.08s">Photo or in-person estimate, then a full teardown to find hidden damage before the insurer signs off — no surprise supplements halfway through the repair.</p>
+        <ul class="step__checks rv" style="--d:.16s"><li>Free estimate</li><li>Insurance handled</li><li>Rental arranged</li></ul>
+      </div>
+      <div class="step__img rv" style="--d:.1s"><img src="assets/story-lg.jpg" srcset="assets/story-sm.jpg 768w, assets/story-lg.jpg 1536w" sizes="(max-width: 860px) 100vw, 40vw" alt="Estimate review at the consultation desk" loading="lazy" decoding="async"></div>
+    </article>
+
+    <article class="step">
+      <span class="step__when rv">[ Days 2–7 ]</span>
+      <span class="step__num rv" style="--d:.05s">/02</span>
+      <div class="step__body">
+        <h3 class="h-sub rv">Repair &amp; Refinish</h3>
+        <p class="p-body rv" style="--d:.08s">Structural work on the laser rack, OEM panels fitted and gapped, paint computer-matched and blended in the downdraft booth. You get a text with photos at every stage.</p>
+        <ul class="step__checks rv" style="--d:.16s"><li>Laser measured</li><li>OEM parts</li><li>Color matched</li></ul>
+      </div>
+      <div class="step__img rv" style="--d:.1s"><img src="assets/paint-mixing-lg.jpg" srcset="assets/paint-mixing-sm.jpg 768w, assets/paint-mixing-lg.jpg 1536w" sizes="(max-width: 860px) 100vw, 40vw" alt="Spectrophotometer and spray-out cards in the mixing room" loading="lazy" decoding="async"></div>
+    </article>
+
+    <article class="step">
+      <span class="step__when rv">[ Final day ]</span>
+      <span class="step__num rv" style="--d:.05s">/03</span>
+      <div class="step__body">
+        <h3 class="h-sub rv">Reassembly &amp; Delivery</h3>
+        <p class="p-body rv" style="--d:.08s">Every system recalibrated, every panel gap checked, a full detail inside and out — then a walkaround with your technician and the lifetime warranty in your hand.</p>
+        <ul class="step__checks rv" style="--d:.16s"><li>ADAS calibrated</li><li>Quality checked</li><li>Detailed &amp; delivered</li></ul>
+      </div>
+      <div class="step__img rv" style="--d:.1s"><img src="assets/work-macan-lg.jpg" srcset="assets/work-macan-sm.jpg 768w, assets/work-macan-lg.jpg 1536w" sizes="(max-width: 860px) 100vw, 40vw" alt="Finished SUV in the delivery bay" loading="lazy" decoding="async"></div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq light" id="faq">
+  <div class="sh sh--wide grid4 wrap">
+    <span class="lb sh__label rv">Common questions</span>
+    <div class="sh__title"><h2 class="h-display rv">Everything You Need to <br>Know Before Your Repair</h2></div>
+    <div class="sh__aside sh__aside--mid rv" style="--d:.1s"><p class="p-lead">Answers to the questions drivers ask most — about insurance, timelines, paint, and how we work.</p></div>
+  </div>
+  <div class="hair"></div>
+
+  <div class="faq__body grid4">
+    <aside class="faq__side rv">
+      <p>Have a question? We're here to help.</p>
+      <figure><img src="assets/svc-collision-lg.jpg" srcset="assets/svc-collision-sm.jpg 640w, assets/svc-collision-lg.jpg 1024w" sizes="25vw" alt="Technician at work in the shop" loading="lazy" decoding="async"></figure>
+      <a class="lk" href="tel:+18185550142">Call the shop <svg><use href="#arrow"/></svg></a>
+    </aside>
+
+    <div class="faq__groups">
+      <div class="group rv">
+        <span class="lb">Insurance</span>
+        <div class="qa open">
+          <button class="qa__q" aria-expanded="true"><span class="icn"></span><span>Do I have to use the shop my insurer recommends?</span></button>
+          <div class="qa__a"><div><p>No. In California you have the legal right to choose your repair shop. We work directly with every major insurer, handle the paperwork and supplements, and keep you copied on everything so nothing happens to your car without you knowing.</p></div></div>
+        </div>
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false"><span class="icn"></span><span>What happens with my deductible?</span></button>
+          <div class="qa__a"><div><p>Your deductible is paid to us at pickup, and it's the only part of an insured repair you pay directly. We'll tell you the exact number before work starts, and we'll never quietly inflate an estimate to "absorb" it — that's insurance fraud, and it's how repairs get cut short.</p></div></div>
+        </div>
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false"><span class="icn"></span><span>What if the insurer wants aftermarket parts?</span></button>
+          <div class="qa__a"><div><p>We document why OEM is required — fit, safety systems, and paint adhesion — and negotiate it with the adjuster on your behalf. Where a policy strictly excludes OEM, we show you the difference in cost so you can decide, not the insurer.</p></div></div>
+        </div>
+      </div>
+
+      <div class="group rv">
+        <span class="lb">Repair process</span>
+        <div class="qa open">
+          <button class="qa__q" aria-expanded="true"><span class="icn"></span><span>How long will my repair take?</span></button>
+          <div class="qa__a"><div><p>Most cosmetic repairs take 3–5 business days. Collision work with structural repair typically runs 8–14 days, depending on parts availability. You'll get a written timeline with the estimate and photo updates along the way — and a call the moment anything changes.</p></div></div>
+        </div>
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false"><span class="icn"></span><span>Can I get a rental while my car is in the shop?</span></button>
+          <div class="qa__a"><div><p>Yes. If your policy includes rental coverage we arrange it and have the car waiting when you drop off. If it doesn't, we have negotiated day rates with two rental partners a block from the shop.</p></div></div>
+        </div>
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false"><span class="icn"></span><span>Do you offer towing?</span></button>
+          <div class="qa__a"><div><p>Around the clock. Call or text the shop number and we dispatch a flatbed anywhere in the San Fernando Valley — the tow is folded into the insured repair whenever the claim allows.</p></div></div>
+        </div>
+      </div>
+
+      <div class="group rv">
+        <span class="lb">Paint &amp; warranty</span>
+        <div class="qa open">
+          <button class="qa__q" aria-expanded="true"><span class="icn"></span><span>Will the paint actually match?</span></button>
+          <div class="qa__a"><div><p>Yes. The factory paint code is only the starting point — every car fades differently. We read your car's actual color with a spectrophotometer, spray test cards, and check them under daylight and shop light before painting. Repairs are blended into adjacent panels so there's no visible edge.</p></div></div>
+        </div>
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false"><span class="icn"></span><span>What does the lifetime warranty cover?</span></button>
+          <div class="qa__a"><div><p>Our workmanship and refinish for as long as you own the vehicle: peeling, fading, cracking, and any defect in the repair itself. It's written, it's transferable to no one, and it doesn't expire.</p></div></div>
+        </div>
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false"><span class="icn"></span><span>Do you repair aluminum and electric vehicles?</span></button>
+          <div class="qa__a"><div><p>Yes. We have a dedicated aluminum bay with isolated tooling, and our technicians are trained on high-voltage isolation procedures for EVs — including battery inspection protocols required after a structural impact.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOURNAL ================= -->
+<section class="journal dark" id="journal">
+  <div class="sh grid4 wrap">
+    <span class="lb sh__label rv">From the shop journal</span>
+    <div class="sh__title"><h2 class="h-display rv">Straight Answers <br>&amp; Shop Insights</h2></div>
+    <div class="sh__aside rv" style="--d:.1s"><a class="lk lk--full" href="#journal">Read the journal <svg><use href="#arrow"/></svg></a></div>
+  </div>
+  <div class="hair"></div>
+
+  <div class="journal__body grid4">
+    <div class="journal__side rv">
+      <h4>Get repair tips and shop updates</h4>
+      <form class="sub" data-sub>
+        <label class="sr-only" for="sub1" style="position:absolute;left:-9999px">Email</label>
+        <input id="sub1" type="email" placeholder="you@example.com" required autocomplete="email">
+        <button class="lk" type="submit">Subscribe now <svg><use href="#arrow"/></svg></button>
+        <small>Join 3,000 drivers who get our once-a-month note on paint, parts, and what's in the booth.</small>
+        <span class="ok">Thanks — you're on the list.</span>
+      </form>
+    </div>
+    <div class="posts">
+      <a class="post post--feature rv" href="#journal">
+        <img src="assets/paint-mixing-lg.jpg" srcset="assets/paint-mixing-sm.jpg 768w, assets/paint-mixing-lg.jpg 1536w" sizes="(max-width: 860px) 100vw, 75vw" alt="" loading="lazy" decoding="async">
+        <div class="post__meta"><span>Paint &amp; color</span><span>5 min read</span><span>Marcus Kessler</span></div>
+        <h3 class="post__title">Why the Factory Paint Code Is Only the Starting Point</h3>
+      </a>
+      <a class="post rv" href="#journal">
+        <img src="assets/work-bmw-lg.jpg" srcset="assets/work-bmw-sm.jpg 768w, assets/work-bmw-lg.jpg 1536w" sizes="(max-width: 860px) 100vw, 37vw" alt="" loading="lazy" decoding="async">
+        <div class="post__meta"><span>Insurance</span><span>4 min read</span><span>Marcus Kessler</span></div>
+        <h4 class="post__title">OEM vs. Aftermarket: What Your Estimate Is Really Saying</h4>
+      </a>
+      <a class="post rv" style="--d:.1s" href="#journal">
+        <img src="assets/svc-frame-lg.jpg" srcset="assets/svc-frame-sm.jpg 640w, assets/svc-frame-lg.jpg 1024w" sizes="(max-width: 860px) 100vw, 37vw" alt="" loading="lazy" decoding="async">
+        <div class="post__meta"><span>Behind the process</span><span>6 min read</span><span>Marcus Kessler</span></div>
+        <h4 class="post__title">From Tow Truck to Keys: Inside a 12-Day Structural Repair</h4>
+      </a>
+    </div>
+  </div>
+  <div class="journal__foot rv"><a class="lk" href="#journal">Read the journal <svg><use href="#arrow"/></svg></a></div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta copper" id="contact">
+  <div class="grid4">
+    <div class="cta__left">
+      <span class="lb rv">Let's talk</span>
+      <div class="trust rv" style="--d:.1s">
+        <div class="avatars" aria-hidden="true"><span>PN</span><span>DR</span><span>EM</span><span>JK</span></div>
+        <div class="stars">
+          <svg aria-hidden="true"><use href="#star" width="14" height="14" x="0"/><use href="#star" width="14" height="14" x="19"/><use href="#star" width="14" height="14" x="38"/><use href="#star" width="14" height="14" x="57"/><use href="#star" width="14" height="14" x="76"/></svg>
+          <small>4,000+ drivers served</small>
+        </div>
+      </div>
+    </div>
+    <div class="cta__body">
+      <h2 class="h-display rv">Ready to Forget It <br>Ever Happened?</h2>
+      <p class="p-lead rv" style="--d:.1s">Text us a few photos or stop by the shop for a free estimate. We'll handle the insurer, the parts, and the paint — you handle the keys.</p>
+      <a class="phone rv" style="--d:.2s" href="tel:+18185550142">(818) 555-0142</a>
+    </div>
+    <div class="cta__right rv" style="--d:.2s">
+      <a class="lk lk--full" href="sms:+18185550142?&body=Hi%20Kessler%2C%20I%27d%20like%20a%20free%20estimate.%20Photos%20attached.">Text photos for an estimate <svg><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer__top grid4">
+    <div class="footer__brand">
+      <div class="brand"><svg class="mark"><use href="#mark"/></svg>Kessler Auto Body</div>
+      <span class="tag">Collision repair &amp; paint - Est. 2009</span>
+      <address>
+        2140 N Hollywood Way, Burbank, CA 91505 <br>
+        <a href="mailto:hello@kesslerautobody.com">hello@kesslerautobody.com</a> <br>
+        <a href="tel:+18185550142">+1 (818) 555-0142</a>
+      </address>
+    </div>
+    <div class="fcol">
+      <span class="lb">Shop</span>
+      <ul>
+        <li><a class="roll" href="#top">Home</a></li>
+        <li><a class="roll" href="#story">About</a></li>
+        <li><a class="roll" href="#services">Services</a></li>
+        <li><a class="roll" href="#work">Work</a></li>
+        <li><a class="roll" href="#process">Process</a></li>
+        <li><a class="roll" href="#journal">Journal</a></li>
+        <li><a class="roll" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <span class="lb">Services</span>
+      <ul>
+        <li><a class="roll" href="#services">Collision Repair</a></li>
+        <li><a class="roll" href="#services">Paint &amp; Refinish</a></li>
+        <li><a class="roll" href="#services">Frame &amp; Structural</a></li>
+        <li><a class="roll" href="#services">Dents &amp; Scratches</a></li>
+        <li><a class="roll" href="#services">ADAS Calibration</a></li>
+        <li><a class="roll" href="#services">Fleet Repair</a></li>
+      </ul>
+    </div>
+    <div class="footer__sub">
+      <h4>Get a once-a-month note on paint, parts, and what's in the booth</h4>
+      <form class="sub" data-sub>
+        <label for="sub2" style="position:absolute;left:-9999px">Email</label>
+        <input id="sub2" type="email" placeholder="you@example.com" required autocomplete="email">
+        <button class="lk" type="submit">Subscribe now <svg><use href="#arrow"/></svg></button>
+        <small>No spam. Just honest shop talk, delivered once a month.</small>
+        <span class="ok">Thanks — you're on the list.</span>
+      </form>
+    </div>
+  </div>
+  <div class="footer__social">
+    <a class="roll" href="#top">Instagram</a>
+    <a class="roll" href="#top">Google Reviews</a>
+    <a class="roll" href="#top">Yelp</a>
+    <a class="roll" href="#top">Facebook</a>
+    <a class="roll" href="#top">YouTube</a>
+  </div>
+  <div class="footer__band">
+    <img src="assets/hero-lg.jpg" srcset="assets/hero-sm.jpg 768w, assets/hero-lg.jpg 1536w" sizes="100vw" alt="" loading="lazy" decoding="async">
+    <div class="footer__legal">
+      <span>© 2026 Kessler Auto Body. All rights reserved.</span>
+      <span>Crafted with care in Burbank, CA.</span>
+      <span><a href="#top">Privacy Policy</a> &nbsp; <a href="#top">Terms &amp; Conditions</a></span>
+    </div>
+    <div class="footer__giant" aria-hidden="true">Kessler Auto Body</div>
+  </div>
+</footer>
+
+</main>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>

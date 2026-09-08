@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "kessler", "runtimeExecutable": "npx", "runtimeArgs": ["-y", "http-server", ".", "-p", "4380", "-c-1", "--silent"], "port": 4380 }
+  ]
+}
